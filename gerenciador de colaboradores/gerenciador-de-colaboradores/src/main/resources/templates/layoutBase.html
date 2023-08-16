@@ -1,0 +1,163 @@
+<!--suppress ALL -->
+<head th:fragment="head">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Colaboradores</title>
+    
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+            crossorigin="anonymous">
+    
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap"
+            rel="stylesheet">
+    <style>
+		.nav-link {
+			font-family: 'Roboto', sans-serif;
+			color: black;
+			font-size: 1.5em;
+			justify-content: flex-end;
+			margin-right: 15px;
+		}
+		
+		.buttons {
+			width: 8em;
+			height: auto;
+		}
+		
+		body {
+			background: linear-gradient(135deg, rgb(103, 103, 103) 0%, rgb(255, 255, 0) 100%);
+		}
+		
+		label {
+			font-family: 'Roboto', sans-serif;
+			font-size: 1.5em;
+		}
+		
+		.logo {
+			margin-left: 15px;
+		}
+</style>
+
+</head>
+
+<div th:fragment="navbar">
+    <nav
+            class="navbar navbar-expand-lg mb-3 d-flex justify-content-between">
+        
+        <a class="logo" 
+        	href="/home">
+	        
+	        <img
+	            src="/images/Logo_Marize.png"
+	            alt="" 
+	            width="300" 
+	            height="100" 
+	            class="d-inline-row align-text-top">
+        </a>
+
+        <ul class="nav">
+            <li class="nav-item">
+				<a class="nav-link active"
+                   aria-current="page" 
+                   href="/home">Inicio</a>
+            </li>
+            
+            <li class="nav-item">
+				<a class="nav-link"
+                   href="/?setor=departamento_pessoal">Dep. Pessoal</a>
+            </li>
+            
+            <li class="nav-item">
+				<a class="nav-link"
+                   href="/?setor=departamento_fiscal">Dep. Fiscal</a>
+            </li>
+            
+            <li class="nav-item">
+				<a class="nav-link"
+				href="/?setor=departamento_contabil">Dep. Contabil</a>
+			</li>
+			
+			<li class="nav-item">
+				<a class="nav-link"
+				href="/?setor=departamento_juridico">Dep. Juridico</a>
+			</li>
+        </ul>
+    </nav>
+</div>
+
+<div th:fragment="form">
+
+    <div class="form-group">
+        <label for="nome" 
+        	   class="form-label">Nome</label>
+        
+        <input class="form-control" 
+        	   type="text" 
+        	   th:field="*{name}"  
+        	   id="name" 
+        	   placeholder="Nome Completo" >
+    </div>
+
+    <div class="form-group">
+        
+        <label for="inputEmail" 
+         	   class="form-label">Email</label>
+        <input
+               class="form-control"
+               type="email"
+               th:field="*{email}"
+               id="inputEmail" required>
+    </div>
+
+    <div class="form-group">
+        
+        <label for="inputCargo"
+        	   class="form-label">Cargo</label>
+       	
+       	<input
+	           class="form-control"
+	           type="text"
+	           th:field="*{office}" 
+	           id="inputCargo" required>
+    </div>
+    
+    <div class="form-group">
+       
+        <label for="inputSalario" 
+        	   class="form-label">Salario</label>
+        
+        <input
+               class="form-control"
+               type="number"
+               th:field="*{wage}"
+               step="any"
+               id="inputSalario" 
+               placeholder="R$1000.00" required>
+    </div>
+
+    <div class="col-4">
+        
+        <label for="inputState" 
+        	   class="form-label">Setor</label> 
+        
+        <select
+           	   th:field="*{setor}"
+           	   id="inputState"
+           	   class="form-select">
+           	   
+        <option value="DEPARTAMENTO_PESSOAL">Departamento Pessoal</option>
+        
+        <option value="DEPARTAMENTO_FISCAL">Departamento Fiscal</option>
+        
+        <option value="DEPARTAMENTO_CONTABIL">Departamento Contabil</option>
+        
+        <option value="DEPARTAMENTO_JURIDICO">Departamento Juridico</option>
+    </select>
+    </div>
+</div>
